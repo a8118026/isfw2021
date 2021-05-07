@@ -1,8 +1,8 @@
 var settings = {};
 
-settings.baseurl = '';
+settings.baseurl = 'https://dbkiso.si.aoyama.ac.jp/oursql/';
 settings.apiurl = settings.baseurl + 'api/';
-settings.db = '';
-settings.userid = '';
-settings.password = '';
+settings.db = 'crecodb';
+settings.userid = 'isp2021';
+settings.password = 'omuice';
 
