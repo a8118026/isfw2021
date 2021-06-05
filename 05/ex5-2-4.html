@@ -11,17 +11,27 @@
 
     <script>
 
-        var x;
-        // function button1Pressed
-        if (x % 2 == 0); {
+        $().ready(function () {
             doSelect();
-        }
+        });
 
+        var x;
         $().ready(function () {
             x = 0;
             setInterval(doCount, 1000);
+            doSelect();
         });
 
+        // $().ready(function () {
+        //     when(x % 2 == 0); {
+        //         doSelect();
+        //     });
+
+
+        // function button1Pressed
+        // if (x % 2 == 0); {
+        //     function doSelect();
+        // }
 
 
         function button2Pressed() {
