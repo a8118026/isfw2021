@@ -15,8 +15,13 @@
         });
 
         function init() {
+            // var sql = 'select * from Users';
+            // var objects = await osql.connect(sql);
+            // console.log(objects);
+
             var username = sessionStorage.getItem('username');
             document.getElementById('welcome').innerHTML = 'ようこそ' + username + 'さん';
+
         }
     </script>
 
@@ -26,7 +31,10 @@
     <h1>ユーザトップ</h1>
     <p id="welcome"></p>
     <!-- <hr> -->
-    <li><a href="update.html?username=object.name">個人情報の修正</a></li>
+    <li><a href="update.html?userid=' + object.id + '">個人情報の修正</a>
+
+        <!-- <a href="update.html?username=object.name"></a></li> -->
+
 </body>
 
 </html>

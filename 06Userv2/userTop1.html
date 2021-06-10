@@ -15,8 +15,12 @@
         });
 
         function init() {
-            var username = sessionStorage.getItem('username');
-            document.getElementById('welcome').innerHTML = 'ようこそ' + username + 'さん';
+
+            var sql = 'select * from Users';
+            var objects = await osql.connect(sql);
+            console.log(objects);
+            // var username = sessionStorage.getItem('username');
+            // document.getElementById('welcome').innerHTML = 'ようこそ' + username + 'さん';
         }
     </script>
 
@@ -27,9 +31,9 @@
     <p id="welcome"></p>
     <!-- <hr> -->
     <!-- <h2>個人情報の修正</h2> -->
-    <li><a href="update.html?username=usernamea">個人情報の修正</a></li>
+    <!-- <li><a href="update.html?username=usernamea">個人情報の修正</a></li> -->
 
-
+    <li><a href="update.html?userid=' + object.id + '">個人情報の修正</a>
 
 </body>
 
