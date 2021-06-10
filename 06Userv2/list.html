@@ -37,6 +37,10 @@
         }
 
         async function doSearch() {
+            var userid = osql.getParam('userid');
+            var objects = await osql.connect(sql);
+            var sql = 'delete from Users where id = "${userid}";';
+            document.getElementById('result').innerHTML = 'OK';
         }
 
 
@@ -49,7 +53,7 @@
 <body>
     <h1>Users</h1>
     <hr>
-    ID:<input id="tf3" type="textfield">
+    ID:<input id="userid" type="textfield">
     <button onclick="button2Pressed()">消去</button>
     <hr>
 
