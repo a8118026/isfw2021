@@ -10,6 +10,10 @@
     <script type="text/javascript" src="../osql.js"></script>
 
     <script>
+
+        function button2Pressed() {
+            doSearch();
+        }
         $(document).ready(function () {
             execSelect();
         });
@@ -31,12 +35,24 @@
             html = html + '</table>';
             document.getElementById('result').innerHTML = html;
         }
+
+        async function doSearch() {
+        }
+
+
+
+
     </script>
 
 </head>
 
 <body>
     <h1>Users</h1>
+    <hr>
+    ID:<input id="tf3" type="textfield">
+    <button onclick="button2Pressed()">消去</button>
+    <hr>
+
     <p id="result">xxxx</p>
 </body>
 
