@@ -17,12 +17,12 @@
         });
 
         var x;
+
         $().ready(function () {
             x = 0;
-            setInterval(doCount, 1000);
+            setInterval(doSelect, 3000);
             doSelect();
         });
-
         // $().ready(function () {
         //     when(x % 2 == 0); {
         //         doSelect();
@@ -57,22 +57,22 @@
 
         async function doSelect() {
             // setTimeout("location.reload()", 2000);
-            if (x % 2 == 0); {
-                var sql = 'select * from Tweets order by time desc limit 20';
-                var objects = await osql.connect(sql);
-                console.log(objects);
-                var html = '';
-                html = html + '<ul>';
-                for (var i = 0; i < objects.length; i++) {
-                    var object = objects[i];
-                    html = html + '<li>' + object.name + ',' + object.tweet + ',' + object.time + '</li>';
-                }
-                html = html + '</ul>';
-                document.getElementById('result').innerHTML = html;
-
-                return;
+            // if (x % 2 == 0); {
+            var sql = 'select * from Tweets order by time desc limit 20';
+            var objects = await osql.connect(sql);
+            console.log(objects);
+            var html = '';
+            html = html + '<ul>';
+            for (var i = 0; i < objects.length; i++) {
+                var object = objects[i];
+                html = html + '<li>' + object.name + ',' + object.tweet + ',' + object.time + '</li>';
             }
+            html = html + '</ul>';
+            document.getElementById('result').innerHTML = html;
+
+            return;
         }
+        // }
 
         async function doSearch() {
             var keyword = document.getElementById('tf3');
