@@ -30,11 +30,11 @@
             // var objects = await osql.connect(sql);
             // console.log(objects);
 
-            result_html = '<a href="update.html?userid=${userid}">個人情報の変更</a>';
+            result_html = '<a href="update.html?userid=' + userid + '">個人情報の変更</a>';
             document.getElementById('result').innerHTML = result_html;
 
 
-            tweet_html = '<a href="tweet.html?userid=${userid}">tweetする</a>';
+            tweet_html = '<a href="tweet.html?userid=' + userid + '">tweetする</a>';
             document.getElementById('tweet').innerHTML = tweet_html;
         }
     </script>
