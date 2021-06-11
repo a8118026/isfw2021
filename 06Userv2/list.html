@@ -37,8 +37,8 @@
         }
 
         async function doSearch() {
-            var userid = osql.getParam('userid');
-            var objects = await osql.connect(sql);
+            // var userid = osql.getParam('userid');
+            // var objects = await osql.connect(sql);
             var sql = 'delete from Users where id = "${userid}";';
             document.getElementById('result').innerHTML = 'OK';
         }
