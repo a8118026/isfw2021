@@ -15,7 +15,7 @@
         $().ready(function () {
             var userid = osql.getParam('userid');
             document.getElementById('tf1').value = userid;
-
+            setInterval(doSelect, 2000);
             doSelect();
         });
 
