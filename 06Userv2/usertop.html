@@ -19,21 +19,20 @@
 
             var username = sessionStorage.getItem('username');
             document.getElementById('welcome').innerHTML = 'ようこそ' + username + 'さん';
-
         }
+
         function button2Pressed() {
-            doSearch();
+            var username = sessionStorage.getItem('userid');
 
 
             var sql = 'select * from Users';
             var objects = await osql.connect(sql);
             console.log(objects);
 
-            html = html + '<td>' + '<a href="update.html?userid=' + object.name + '">変更</a>' + '</td>';
+            html = '<a href="update.html?userid=' + object.name + '">個人情報の変更</a>';
 
-            html = html + '</table>';
             document.getElementById('result').innerHTML = html;
-            <p id="result">xxxx</p>
+
 
         }
     </script>
@@ -43,8 +42,8 @@
 <body>
     <h1>ユーザトップ</h1>
     <p id="welcome"></p>
-    <!-- <p id="result">xxxx</p> -->
-    <button onclick="button2Pressed()">個人情報の変更</button>
+    <p id="result"></p>
+    <!-- <button onclick="button2Pressed()">個人情報の変更</button> -->
 
     <!-- <hr> -->
     <!-- <li><a href="update.html?userid=' + object.id + '">個人情報の修正</a> -->
