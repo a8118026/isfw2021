@@ -14,22 +14,24 @@
             init();
         });
 
+
+
         function init() {
             // html = html + '<td>' + '<a href="update.html?userid=' + object.id + '">変更</a>' + '</td>';
 
             var username = sessionStorage.getItem('username');
             document.getElementById('welcome').innerHTML = 'ようこそ' + username + 'さん';
-        }
+            // }
 
-        function button2Pressed() {
+            // function button() {
             var username = sessionStorage.getItem('userid');
 
 
-            var sql = 'select * from Users';
-            var objects = await osql.connect(sql);
-            console.log(objects);
+            // var sql = 'select * from Users';
+            // var objects = await osql.connect(sql);
+            // console.log(objects);
 
-            html = '<a href="update.html?userid=' + object.name + '">個人情報の変更</a>';
+            html = '<a href="update.html?userid=${ userid }">個人情報の変更</a>';
 
             document.getElementById('result').innerHTML = html;
 
