@@ -15,12 +15,25 @@
         });
 
         function init() {
-            // var sql = 'select * from Users';
-            // var objects = await osql.connect(sql);
-            // console.log(objects);
+            // html = html + '<td>' + '<a href="update.html?userid=' + object.id + '">変更</a>' + '</td>';
 
             var username = sessionStorage.getItem('username');
             document.getElementById('welcome').innerHTML = 'ようこそ' + username + 'さん';
+
+        }
+        function button2Pressed() {
+            doSearch();
+
+
+            var sql = 'select * from Users';
+            var objects = await osql.connect(sql);
+            console.log(objects);
+
+            html = html + '<td>' + '<a href="update.html?userid=' + object.name + '">変更</a>' + '</td>';
+
+            html = html + '</table>';
+            document.getElementById('result').innerHTML = html;
+            <p id="result">xxxx</p>
 
         }
     </script>
@@ -30,10 +43,13 @@
 <body>
     <h1>ユーザトップ</h1>
     <p id="welcome"></p>
-    <!-- <hr> -->
-    <li><a href="update.html?userid=' + object.id + '">個人情報の修正</a>
+    <!-- <p id="result">xxxx</p> -->
+    <button onclick="button2Pressed()">個人情報の変更</button>
 
-        <!-- <a href="update.html?username=object.name"></a></li> -->
+    <!-- <hr> -->
+    <!-- <li><a href="update.html?userid=' + object.id + '">個人情報の修正</a> -->
+
+    <!-- <a href="update.html?username=object.name"></a></li> -->
 
 </body>
 
