@@ -21,21 +21,21 @@
 
             var username = sessionStorage.getItem('username');
             document.getElementById('welcome').innerHTML = 'ようこそ' + username + 'さん';
-            // }
 
             // function button() {
             var userid = sessionStorage.getItem('userid');
 
 
-            // var sql = 'select * from Users';
+            // var sql = 'select * from Users';d
             // var objects = await osql.connect(sql);
             // console.log(objects);
 
             result_html = '<a href="update.html?userid=${userid}">個人情報の変更</a>';
-
             document.getElementById('result').innerHTML = result_html;
 
 
+            tweet_html = '<a href="tweet.html?userid=${userid}">tweetする</a>';
+            document.getElementById('tweet').innerHTML = tweet_html;
         }
     </script>
 
@@ -45,6 +45,7 @@
     <h1>ユーザトップ</h1>
     <p id="welcome"></p>
     <p id="result"></p>
+    <p id="tweet"></p>
     <!-- <button onclick="button2Pressed()">個人情報の変更</button> -->
 
     <!-- <hr> -->

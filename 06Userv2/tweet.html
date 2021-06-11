@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../jquery.min.js"></script>
+    <script type="text/javascript" src="../settings.js"></script>
+    <script type="text/javascript" src="../osql.js"></script>
+
+    <script>
+        // setTimeout("location.reload()", 2000);
+
+        $().ready(function () {
+            doSelect();
+        });
+
+        var x;
+        $().ready(function () {
+            x = 0;
+            setInterval(doCount, 1000);
+            doSelect();
+        });
+
+        // $().ready(function () {
+        //     when(x % 2 == 0); {
+        //         doSelect();
+        //     });
+
+        // function button1Pressed
+        // if (x % 2 == 0); {
+        //     function doSelect();
+        // }
+
+
+        function button2Pressed() {
+            doSearch();
+        }
+
+        function button3Pressed() {
+            doInsert();
+        }
+
+        async function doInsert() {
+            var userid = document.getElementById('tf1').value;
+            var tweet = document.getElementById('tf2').value;
+
+            var sql = `insert into Tweets (name, tweet, time) values("${userid}", "${tweet}", now());`;
+            var objects = await osql.connect(sql);
+            console.log(objects);
+
+            document.getElementById('tf2').value = '';
+
+            document.getElementById('result1').innerHTML = "tweetしました";
+        }
+
+        async function doSelect() {
+            // setTimeout("location.reload()", 2000);
+            if (x % 2 == 0); {
+                var sql = 'select * from Tweets order by time desc limit 20';
+                var objects = await osql.connect(sql);
+                console.log(objects);
+                var html = '';
+                html = html + '<ul>';
+                for (var i = 0; i < objects.length; i++) {
+                    var object = objects[i];
+                    html = html + '<li>' + object.name + ',' + object.tweet + ',' + object.time + '</li>';
+                }
+                html = html + '</ul>';
+                document.getElementById('result').innerHTML = html;
+
+                return;
+            }
+        }
+
+        async function doSearch() {
+            var keyword = document.getElementById('tf3');
+            console.log(keyword.value);
+
+            var sql = 'select * from Tweets where tweet like "' + keyword.value + '%" order by time desc limit 20';
+
+            var objects = await osql.connect(sql);
+            console.log(objects);
+            var html = '';
+            html = html + '<ul>';
+            for (var i = 0; i < objects.length; i++) {
+                var object = objects[i];
+                html = html + '<li>' + object.name + ',' + object.tweet + ',' + object.time + '</li>';
+            }
+            html = html + '</ul>';
+            document.getElementById('result').innerHTML = html;
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1>Tweets</h1>
+    <hr>
+    <h2>Tweetする機能</h2>
+    <br>
+    名前:<input id="tf1" value="名無し" type="textfield">
+    <br>
+    tweet:<input id="tf2" type="textfield">
+    <button onclick="button3Pressed()">tweet</button>
+    <p id="result1"></p>
+
+    <hr>
+    <h2>閲覧＆検索する機能</h2>
+
+    <!-- <button onclick="button1Pressed()">X</button> -->
+    <!-- <p id="result">xxxx</p> -->
+    search:<input id="tf3" type="textfield">
+    <button onclick="button2Pressed()">search</button>
+
+    <p id="result"></p>
+
+</body>
+
+</html>
