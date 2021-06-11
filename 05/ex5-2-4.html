@@ -19,7 +19,7 @@
         var x;
         $().ready(function () {
             x = 0;
-            setInterval(doCount, 1000);
+            setInterval(doSelect, 3000);
             doSelect();
         });
 
@@ -56,20 +56,20 @@
         }
 
         async function doSelect() {
-            setTimeout("location.reload()", 2000);
-            if (x % 2 == 0); {
-                var sql = 'select * from Tweets order by time desc limit 20';
-                var objects = await osql.connect(sql);
-                console.log(objects);
-                var html = '';
-                html = html + '<ul>';
-                for (var i = 0; i < objects.length; i++) {
-                    var object = objects[i];
-                    html = html + '<li>' + object.name + ',' + object.tweet + ',' + object.time + '</li>';
-                }
-                html = html + '</ul>';
-                document.getElementById('result').innerHTML = html;
+            // setTimeout("location.reload()", 2000);
+            // if (x % 2 == 0); {
+            var sql = 'select * from Tweets order by time desc limit 20';
+            var objects = await osql.connect(sql);
+            console.log(objects);
+            var html = '';
+            html = html + '<ul>';
+            for (var i = 0; i < objects.length; i++) {
+                var object = objects[i];
+                html = html + '<li>' + object.name + ',' + object.tweet + ',' + object.time + '</li>';
             }
+            html = html + '</ul>';
+            document.getElementById('result').innerHTML = html;
+            // }
         }
 
         async function doSearch() {
@@ -107,13 +107,11 @@
 
     <hr>
     <h2>閲覧＆検索する機能</h2>
-
-    <button onclick="button1Pressed()">X</button>
-    <p id="result">xxxx</p>
+    <!-- <button onclick="button1Pressed()">X</button> -->
     search:<input id="tf3" type="textfield">
     <button onclick="button2Pressed()">search</button>
-
     <p id="result"></p>
+    <!-- <p id="result"></p> -->
 
 </body>
 
