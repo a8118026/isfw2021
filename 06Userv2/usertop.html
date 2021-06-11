@@ -24,16 +24,16 @@
             // }
 
             // function button() {
-            var username = sessionStorage.getItem('userid');
+            var userid = sessionStorage.getItem('userid');
 
 
             // var sql = 'select * from Users';
             // var objects = await osql.connect(sql);
             // console.log(objects);
 
-            html = '<a href="update.html?userid=${ userid }">個人情報の変更</a>';
+            result_html = '<a href="update.html?userid=${userid}">個人情報の変更</a>';
 
-            document.getElementById('result').innerHTML = html;
+            document.getElementById('result').innerHTML = result_html;
 
 
         }
