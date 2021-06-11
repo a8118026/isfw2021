@@ -13,16 +13,19 @@
         // setTimeout("location.reload()", 2000);
 
         $().ready(function () {
+            var userid = osql.getParam('userid');
+            document.getElementById('tf1').value = userid;
+
             doSelect();
         });
 
         var x;
 
-        $().ready(function () {
-            x = 0;
-            setInterval(doSelect, 2000);
-            doSelect();
-        });
+        // $().ready(function () {
+        //     x = 0;
+        //     setInterval(doSelect, 2000);
+        //     doSelect();
+        // });
         // $().ready(function () {
         //     when(x % 2 == 0); {
         //         doSelect();
@@ -101,7 +104,7 @@
     <hr>
     <h2>Tweetする機能</h2>
     <br>
-    名前:<input id="tf1" value="名無し" type="textfield">
+    名前:<input id="tf1" value="" type="textfield" disabled>
     <br>
     tweet:<input id="tf2" type="textfield">
     <button onclick="button3Pressed()">tweet</button>
